@@ -11,17 +11,9 @@ class About extends React.Component {
             padding: rhythm(3 / 4),
           }}
         >
-          <h1 data-testid="about-title">About Gatsbygram</h1>
+          <h1 data-testid="about-title">About margatsnI</h1>
           <p>
-            This is a test.
-          </p>
-          <p>
-            Another test.
-          </p>
-          <p>
-            <a href="https://www.gatsbyjs.org/blog/gatsbygram-case-study/">
-              Test 3
-            </a>
+            It's Instagram backwards.
           </p>
         </div>
       </Layout>
