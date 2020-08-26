@@ -13,32 +13,14 @@ class About extends React.Component {
         >
           <h1 data-testid="about-title">About Gatsbygram</h1>
           <p>
-            Gatsbygram is an example website built with the JavaScript web
-            framework
-            {` `}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/gatsbyjs/gatsby"
-            >
-              Gatsby
-            </a>
-            .
+            This is a test.
           </p>
           <p>
-            The code for the site lives at
-            {` `}
-            <a
-              href="https://github.com/gatsbyjs/gatsby/tree/master/examples/gatsbygram"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              https://github.com/gatsbyjs/gatsby/tree/master/examples/gatsbygram
-            </a>
+            Another test.
           </p>
           <p>
             <a href="https://www.gatsbyjs.org/blog/gatsbygram-case-study/">
-              Read a case study on how Gatsbygram was built
+              Test 3
             </a>
           </p>
         </div>
