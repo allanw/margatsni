@@ -47,6 +47,7 @@ const getPosts = maxId => {
   let url2 = `https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b`
 
   //url = url2 + `&variables={"id":"${userId}","first":12,"after":"${maxId}"}`
+  console.log(url);
 
   request(url, { encoding: `utf8`,
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
