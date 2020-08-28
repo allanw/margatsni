@@ -6,6 +6,7 @@ const { get } = require(`lodash`)
 const download = require(`./utils/download-file`)
 
 const username = process.argv[2]
+const access_token = process.argv[3]
 
 if (!username) {
   console.log(
