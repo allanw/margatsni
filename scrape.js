@@ -50,6 +50,7 @@ const getPosts = maxId => {
 
   request(url, { encoding: `utf8` }, (err, res, body) => {
     if (err) console.log(`error: ${err}`)
+    console.log(JSON.parse(body).data);
     if (maxId) {
       body = JSON.parse(body).data
     } else {
