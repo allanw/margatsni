@@ -43,32 +43,22 @@ const saveJSON = _ =>
   fs.writeFileSync(`./data/posts.json`, JSON.stringify(posts, ``, 2))
 
 const getPosts = maxId => {
-  let url = `https://www.instagram.com/${username}/?__a=1&page=2&access_token=${access_token}`
+  let url = `https://www.instagram.com/${username}`
+  
+  request(url, {},
+          (err, res, body) => {
+      foo = JSON.parse(body.split("window._sharedData = ")[1].split(";</script>")[0]).entry_data.ProfilePage[0].graphql;
+      userId = foo.user.id
+      console.log(userId);
+      //console.log(foo);
+  
   //let url = 'https://instagram.com/graphql/query/?query_id=17888483320059182&id={username}&first=12&access_token=${access_token}'
   let url2 = `https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b`
 
   if (maxId)
     url = url2 + `&variables={"id":"${userId}","first":12,"after":"${maxId}"}`
 
-  request(url, { encoding: `utf8`,
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'accept-encoding': 'gzip, deflate, br',
-            'accept-language': 'en-US,en;q=0.9,fr;q=0.8,ro;q=0.7,ru;q=0.6,la;q=0.5,pt;q=0.4,de;q=0.3',
-            'cache-control': 'max-age=0',
-            'upgrade-insecure-requests': '1',
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
-        }, (err, res, body) => {
-    if (err) console.log(`error: ${err}`)
-    console.log(body);
-    if (maxId) {
-      body = JSON.parse(body).data
-    } else {
-      //This is the first request, lets get the userId
-      body = JSON.parse(body).graphql
-      userId = body.user.id
-    }
-
-    body.user.edge_owner_to_timeline_media.edges
+    foo.user.edge_owner_to_timeline_media.edges
       .filter(({ node: item }) => item[`__typename`] === `GraphImage`)
       .map(({ node: item }) => {
         // Parse item to a simple object
