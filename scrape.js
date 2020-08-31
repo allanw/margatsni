@@ -47,6 +47,7 @@ const getPosts = maxId => {
   
   request(url, {},
           (err, res, body) => {
+    console.log(body);
       foo = JSON.parse(body.split("window._sharedData = ")[1].split(";</script>")[0]).entry_data.ProfilePage[0].graphql;
       userId = foo.user.id
       console.log(userId);
