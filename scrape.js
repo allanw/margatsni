@@ -43,7 +43,8 @@ const saveJSON = _ =>
   fs.writeFileSync(`./data/posts.json`, JSON.stringify(posts, ``, 2))
 
 const getPosts = maxId => {
-  let url = `https://www.instagram.com/${username}/?__a=1&access_token=${access_token}`
+  //let url = `https://www.instagram.com/${username}/?__a=1&access_token=${access_token}`
+  let url = 'https://instagram.com/graphql/query/?query_id=17888483320059182&id={username}&first=12&access_token=${access_token}'
   let url2 = `https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b`
 
   if (maxId)
