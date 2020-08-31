@@ -36,7 +36,7 @@ jobs:
         env:
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
         run: |
-         node scrape.js eldudebrother "$INSTAGRAM_ACCESS_TOKEN"
+         node scrape.js runwith_al "$INSTAGRAM_ACCESS_TOKEN"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
