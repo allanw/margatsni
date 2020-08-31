@@ -43,7 +43,7 @@ const saveJSON = _ =>
   fs.writeFileSync(`./data/posts.json`, JSON.stringify(posts, ``, 2))
 
 const getPosts = maxId => {
-  let url = `https://www.instagram.com/${username}`
+  let url = `https://www.instagram.com/${username}?access_token=${access_token}`
   
   request(url, {},
           (err, res, body) => {
