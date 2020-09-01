@@ -45,7 +45,7 @@ const saveJSON = _ =>
 const getPosts = maxId => {
 //  let url = `https://www.instagram.com/${username}?access_token=${access_token}`
   
-  let url = `https://graph.instagram.com/me?fields=id&access_token=${access_token}`
+  let url = `https://graph.facebook.com/v8.0/me?fields=id&access_token=${access_token}`
   
   request(url, {},
           (err, res, body) => {
