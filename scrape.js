@@ -20,7 +20,7 @@ node scrape.js INSTAGRAM_USERNAME
   process.exit()
 }
 
-// Convert timestamp to ISO 8601.
+// Convert timestamp to ISO 8601..
 const toISO8601 = timestamp => new Date(timestamp * 1000).toJSON()
 
 // Create the progress bar
