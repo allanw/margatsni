@@ -20,7 +20,7 @@ node scrape.js INSTAGRAM_USERNAME
   process.exit()
 }
 
-// Convert timestamp to ISO 8601..
+// Convert timestamp to ISO 8601.
 const toISO8601 = timestamp => new Date(timestamp * 1000).toJSON()
 
 // Create the progress bar
@@ -43,13 +43,10 @@ const saveJSON = _ =>
   fs.writeFileSync(`./data/posts.json`, JSON.stringify(posts, ``, 2))
 
 const getPosts = maxId => {
-//  let url = `https://www.instagram.com/${username}?access_token=${access_token}`
-  
-  let url = `https://graph.facebook.com/v8.0/me?fields=id&access_token=${access_token}`
+  let url = `https://www.instagram.com/${username}`
   
   request(url, {},
           (err, res, body) => {
-    console.log(body);
       foo = JSON.parse(body.split("window._sharedData = ")[1].split(";</script>")[0]).entry_data.ProfilePage[0].graphql;
       userId = foo.user.id
       console.log(userId);
@@ -101,3 +98,4 @@ const getPosts = maxId => {
 }
 
 getPosts()
+
